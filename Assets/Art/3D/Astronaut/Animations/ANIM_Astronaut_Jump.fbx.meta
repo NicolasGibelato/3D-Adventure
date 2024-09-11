@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 1aaffea0676d89e478819337f2b8fa4e
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 20300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
@@ -38,7 +38,7 @@ ModelImporter:
       name: ANIM_Astronaut_Jump
       takeName: Take 001
       internalID: 0
-      firstFrame: 9
+      firstFrame: 1
       lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
@@ -128,6 +128,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
