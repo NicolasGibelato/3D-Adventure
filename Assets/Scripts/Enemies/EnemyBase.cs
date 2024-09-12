@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 using DG.Tweening;
 using Animation;
@@ -28,8 +29,12 @@ namespace Enemy
         public bool startWithBornAnimation = true;
         public float deathDuration = 2f;
 
-        private Player _player;
+        [Header("Events")]
+        public UnityEvent OnKillEvent;
 
+
+
+        private Player _player;
 
         private void Awake()
         {
@@ -66,6 +71,7 @@ namespace Enemy
             if (collider != null) collider.enabled = false;
             Destroy(gameObject, deathDuration);
             PlayAnimationByTrigger(AnimationType.DEATH);
+            OnKillEvent?.Invoke();
         }
 
         #region ANIMATIONS
