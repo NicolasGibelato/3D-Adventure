@@ -11,6 +11,7 @@ public class CheckPointManager : Singleton<CheckPointManager>
 
     public bool HasCheckPoint()
     {
+        LoadCheckPointFromSave();
         return lastCheckPointKey > 0;
     }
 
@@ -26,5 +27,10 @@ public class CheckPointManager : Singleton<CheckPointManager>
     {
        var checkpoint =  checkpoints.Find(i => i.key == lastCheckPointKey);
         return checkpoint.transform.position;
+    }
+
+    public void LoadCheckPointFromSave()
+    {
+        SaveCheckPoint((int)SaveManager.Instance.Setup.checkPointKey);
     }
 }

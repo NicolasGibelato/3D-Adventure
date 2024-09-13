@@ -7,12 +7,18 @@ public class CheckpointBase : MonoBehaviour
     public MeshRenderer meshRenderer;
     public Typper typper;
     public int key = 01;
+    public int currentLevel = 1;
 
 
 
     private bool checkPointActived = false;
     private bool checkPointActivedUI = true;
     private string checkPointKey = "CheckpointKey";
+
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,6 +35,7 @@ public class CheckpointBase : MonoBehaviour
     {
         TurnItOn();
         SaveCheckPoint();
+        SaveManager.Instance.SaveLastLevel(currentLevel);
     }
 
     private void TurnItOn()

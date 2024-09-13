@@ -12,7 +12,7 @@ public class SaveManager : Singleton<SaveManager>
     
     public int lastLevel;
 
-
+    public int lastCheckPointKey = 01;
     public Action<SaveSetup> FileLoaded;
 
     public SaveSetup Setup
@@ -50,7 +50,14 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.coins = Items.ItemManager.Instance.GetItemByType(Items.ItemType.COIN).soInt.value;
         _saveSetup.health = Items.ItemManager.Instance.GetItemByType(Items.ItemType.LIFE_PACK).soInt.value;
         Save();
+    }
 
+    public void SaveCheckPoints()
+    {
+        _saveSetup.checkPoints = CheckPointManager.Instance.HasCheckPoint();
+        _saveSetup.checkPointPosition = CheckPointManager.Instance.GetPositionFromLastCheckPoint();
+        _saveSetup.checkPointKey = CheckPointManager.Instance.lastCheckPointKey;
+        Save();
     }
 
 
@@ -64,6 +71,7 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveLastLevel(int level)
     {
         _saveSetup.lastLevel = level;
+        SaveCheckPoints();
         SaveItems();
         Save();
     }
@@ -107,6 +115,9 @@ public class SaveSetup
     public int lastLevel;
     public float coins;
     public float health;
+    public bool checkPoints;
+    public Vector3 checkPointPosition;
+    public float checkPointKey;
 
     public string playerName;
 }
