@@ -9,9 +9,10 @@ public class SaveManager : Singleton<SaveManager>
 {
     [SerializeField] private SaveSetup _saveSetup;
     private string _path = Application.streamingAssetsPath + "/save.txt";
+    public HealthBase healthBase;
     
     public int lastLevel;
-
+   
     public int lastCheckPointKey = 01;
     public Action<SaveSetup> FileLoaded;
 
@@ -59,7 +60,6 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.checkPointKey = CheckPointManager.Instance.lastCheckPointKey;
         Save();
     }
-
 
     public void SaveName(string text)
     {
@@ -118,6 +118,7 @@ public class SaveSetup
     public bool checkPoints;
     public Vector3 checkPointPosition;
     public float checkPointKey;
+    
 
     public string playerName;
 }

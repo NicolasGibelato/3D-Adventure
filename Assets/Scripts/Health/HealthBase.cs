@@ -10,7 +10,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public float startLife = 10f;
     public float deathDuration = 0.2f;
     public bool destroyOnKill = false;
-    [SerializeField] private float _currentLife;
+    [SerializeField] public float _currentLife;
 
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
@@ -81,6 +81,4 @@ public class HealthBase : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(duration);
         this.damageMultiply = 1;
     }
-
-
 }
