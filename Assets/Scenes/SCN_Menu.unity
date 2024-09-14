@@ -791,7 +791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7254041551121992124, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_Name
-      value: PFB_Play (1)
+      value: PFB_Save
       objectReference: {fileID: 0}
     - target: {fileID: 7419946980226832541, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_Pivot.x
@@ -880,22 +880,22 @@ PrefabInstance:
     - target: {fileID: 8219056837135318523, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1016305885}
     - target: {fileID: 8219056837135318523, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8219056837135318523, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Load
+      value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8219056837135318523, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LoadScene, Assembly-CSharp
+      value: LoadSceneHelper, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8219056837135318523, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8219056837135318523, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -1473,6 +1473,23 @@ Transform:
   m_Father: {fileID: 1149129669}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1016305884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7254041551121992124, guid: 2a46fc4e1c9c43243830ee6adff1c789, type: 3}
+  m_PrefabInstance: {fileID: 824408868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1016305885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016305884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786e93ef1ce0ff94e8da9ef3cf60caca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1035884385
 GameObject:
   m_ObjectHideFlags: 0

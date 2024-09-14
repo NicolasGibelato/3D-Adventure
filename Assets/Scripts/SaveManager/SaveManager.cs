@@ -9,7 +9,7 @@ public class SaveManager : Singleton<SaveManager>
 {
     [SerializeField] private SaveSetup _saveSetup;
     private string _path = Application.streamingAssetsPath + "/save.txt";
-    public HealthBase healthBase;
+    
     
     public int lastLevel;
    
@@ -61,6 +61,12 @@ public class SaveManager : Singleton<SaveManager>
         Save();
     }
 
+    public void SaveCloth()
+    {
+        _saveSetup.texture = Cloth.ClothManager.Instance.GetSetupByType(Cloth.ClothType.STRONG).texture;
+        Save();
+    }
+
     public void SaveName(string text)
     {
         _saveSetup.playerName = text;
@@ -71,6 +77,7 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveLastLevel(int level)
     {
         _saveSetup.lastLevel = level;
+        SaveCloth();
         SaveCheckPoints();
         SaveItems();
         Save();
@@ -118,6 +125,7 @@ public class SaveSetup
     public bool checkPoints;
     public Vector3 checkPointPosition;
     public float checkPointKey;
+    public Texture2D texture;
     
 
     public string playerName;

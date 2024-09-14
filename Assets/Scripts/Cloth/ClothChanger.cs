@@ -15,9 +15,10 @@ namespace Cloth
         private void Awake()
         {
            _defaultTexture = (Texture2D) skinnedMesh.materials[0].GetTexture(shaderIDName);
+            LoadCheckPointFromSave();
         }
 
-        private void ChangeTexture()
+        public void ChangeTexture(Texture2D texture)
         {
             skinnedMesh.materials[0].SetTexture(shaderIDName, texture);
         }
@@ -32,5 +33,9 @@ namespace Cloth
             skinnedMesh.materials[0].SetTexture(shaderIDName, _defaultTexture);
         }
 
+        public void LoadCheckPointFromSave()
+        {
+            ChangeTexture(SaveManager.Instance.Setup.texture);
+        }
     }
 }

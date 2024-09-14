@@ -10,6 +10,7 @@ namespace Boss
     {
         //public Transform _spawnEnemyPoint;
         //public Transform _spawnBossPoint;
+        
         public GameObject Enemy_01;
         public GameObject Enemy_02;
         // GameObject Enemy_Boss;
