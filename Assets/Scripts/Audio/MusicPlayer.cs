@@ -22,4 +22,13 @@ public class MusicPlayer : MonoBehaviour
         audioSource.Play();
     }
 
+    public void TurnOff()
+    {
+        audioSource.Pause();
+    }
+
+    public void TurnOn()
+    {
+        audioSource.Play();
+    }
 }

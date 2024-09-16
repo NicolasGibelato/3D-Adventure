@@ -4,15 +4,16 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using Aperture.Core.Singleton;
+using Cloth;
 
 public class SaveManager : Singleton<SaveManager>
 {
     [SerializeField] private SaveSetup _saveSetup;
     private string _path = Application.streamingAssetsPath + "/save.txt";
-    
-    
+
     public int lastLevel;
-   
+  
+
     public int lastCheckPointKey = 01;
     public Action<SaveSetup> FileLoaded;
 
@@ -27,11 +28,12 @@ public class SaveManager : Singleton<SaveManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    private void CreateNewSave()
+    public void CreateNewSave()
     {
         _saveSetup = new SaveSetup();
         _saveSetup.lastLevel = 0;
         _saveSetup.playerName = "Nicolas";
+        Save();
     }
 
     private void Start()
@@ -88,13 +90,14 @@ public class SaveManager : Singleton<SaveManager>
         File.WriteAllText(_path, json);
     }
 
-    private void Load()
+    public void Load()
     {
         string fileLoaded = "";
 
         if (File.Exists(_path))
         {
             fileLoaded = File.ReadAllText(_path);
+
             _saveSetup = JsonUtility.FromJson<SaveSetup>(fileLoaded);
             lastLevel = _saveSetup.lastLevel;
         }
@@ -127,6 +130,10 @@ public class SaveSetup
     public float checkPointKey;
     public Texture2D texture;
     
+    
+    
+
+
 
     public string playerName;
 }

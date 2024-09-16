@@ -26,7 +26,6 @@ public class SoundManager : Singleton<SoundManager>
     {
         return sfxSetups.Find(i => i.sfxType == sfxType);
     }
-
 }
 
 public enum MusicType
@@ -48,7 +47,8 @@ public enum SFXType
     NONE,
     TYPE_01,
     TYPE_02,
-    TYPE_03
+    TYPE_03,
+    TYPE_04
 
 }
 

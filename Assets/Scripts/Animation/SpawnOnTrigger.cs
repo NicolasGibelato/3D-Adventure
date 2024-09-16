@@ -13,6 +13,7 @@ namespace Boss
         
         public GameObject Enemy_01;
         public GameObject Enemy_02;
+        public GameObject Enemy_03;
         // GameObject Enemy_Boss;
         //public BossBase bossBase;
 
@@ -21,6 +22,7 @@ namespace Boss
         {
             Enemy_01.gameObject.SetActive(false);
             Enemy_02.gameObject.SetActive(false);
+            Enemy_03.gameObject.SetActive(false);
             //Enemy_Boss.gameObject.SetActive(false);
         }
 
@@ -28,6 +30,7 @@ namespace Boss
         {
             SetActiveEnemy();
             SetActiveEnemy2();
+            SetActiveEnemy3();
             SetActiveBoss();
            
             //Instantiate(Enemy, _spawnEnemyPoint.position, _spawnEnemyPoint.rotation);
@@ -47,6 +50,11 @@ namespace Boss
         private void SetActiveEnemy2()
         {
             Enemy_02.gameObject.SetActive(true);
+        }
+
+        private void SetActiveEnemy3()
+        {
+            Enemy_03.gameObject.SetActive(true);
         }
 
         private void SetActiveBoss()

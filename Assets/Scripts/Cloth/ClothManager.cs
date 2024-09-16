@@ -21,6 +21,8 @@ namespace Cloth
         {
             return clothSetups.Find(i => i.clothType == clothType);
         }
+
+
     }
 
     [System.Serializable]

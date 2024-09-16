@@ -184,5 +184,4 @@ public class Player : Singleton<Player>//, IDamageable
         yield return new WaitForSeconds(duration);
         _clothChanger.ResetTexture();
     }
-
 }

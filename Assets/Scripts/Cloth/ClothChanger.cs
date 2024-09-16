@@ -11,16 +11,17 @@ namespace Cloth
         public string shaderIDName = "_EmissionMap";
 
         private Texture2D _defaultTexture;
+        private int currentLevel;
 
         private void Awake()
-        {
-           _defaultTexture = (Texture2D) skinnedMesh.materials[0].GetTexture(shaderIDName);
-            LoadCheckPointFromSave();
+        { 
+            _defaultTexture = (Texture2D) skinnedMesh.materials[0].GetTexture(shaderIDName);
         }
 
         public void ChangeTexture(Texture2D texture)
         {
             skinnedMesh.materials[0].SetTexture(shaderIDName, texture);
+            SaveManager.Instance.SaveLastLevel(currentLevel);
         }
 
         public void ChangeTexture(ClothSetup setup)
@@ -30,12 +31,13 @@ namespace Cloth
 
         public void ResetTexture()
         {
+            LoadItemsFromSave();
             skinnedMesh.materials[0].SetTexture(shaderIDName, _defaultTexture);
         }
 
-        public void LoadCheckPointFromSave()
+        public void LoadItemsFromSave()
         {
-            ChangeTexture(SaveManager.Instance.Setup.texture);
+            ChangeTexture((Texture2D)SaveManager.Instance.Setup.texture);
         }
     }
 }

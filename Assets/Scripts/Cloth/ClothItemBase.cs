@@ -10,6 +10,7 @@ namespace Cloth
         public ClothType clothType;
         public string compareTag = "Player";
         public float duration = 2f;
+        private int currentLevel = 1;
 
         private void OnTriggerEnter(Collider collision)
         {
@@ -24,6 +25,7 @@ namespace Cloth
             HideObject();
             var setup = ClothManager.Instance.GetSetupByType(clothType);
             Player.Instance.ChangeTexture(setup, duration);
+            SaveManager.Instance.SaveLastLevel(currentLevel);
         }
 
         protected void HideObject()

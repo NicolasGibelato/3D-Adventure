@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
+    public SFXType sfxType;
     public List<GameObject> endGameObjects;
 
-    public int currentLevel = 1;
+    public int currentLevel;
+    public int loadLevel = 0;
 
 
     private bool _endGame = false;
+
+    [Header("sound")]
+    public AudioSource audioSource;
+    private string level;
 
     private void Awake()
     {
@@ -24,6 +31,8 @@ public class EndGame : MonoBehaviour
         if (!_endGame && p != null)
         {
             ShowEndGame();
+            PlaySFX();
+            Invoke(nameof(LoadLevel), 1.5f);
         }
     }
 
@@ -40,4 +49,13 @@ public class EndGame : MonoBehaviour
         }
     }
 
+    private void PlaySFX()
+    {
+        SFXPool.Instance.Play(sfxType);
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(loadLevel);
+    }
 }
